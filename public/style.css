@@ -68,3 +68,23 @@ textarea {
   margin-top: 0.5rem;
   justify-content: center;
 }
+
+.buttons > * + * {
+  margin-left: 0.25rem;
+}
+
+.btn {
+  cursor: pointer;
+  background: none;
+  border: 1px solid #002b36;
+  color: #002b36;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  transition: background-color 200ms ease-in-out;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: #83e5ff;
+}
