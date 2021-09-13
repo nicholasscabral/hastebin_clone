@@ -6,6 +6,13 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
+const Document = require("./models/Document");
+const mongoose = require("mongoose");
+mongoose.connect("mongodb://localhost/wastebin", {
+  useUndefinedTopology: true,
+  useNewUrlParser: true,
+});
+
 app.get("/", (req, res) => {
   const code = `Welcome to WasteBin!
 
@@ -19,9 +26,8 @@ app.get("/new", (req, res) => {
   res.render("new");
 });
 
-app.post("/save", (req, res) => {
+app.post("/save", async (req, res) => {
   const { value } = req.body;
-  console.log(value);
 });
 
 app.listen(3000, () => console.log("server running..."));
